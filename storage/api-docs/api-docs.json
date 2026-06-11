@@ -1,0 +1,177 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Panel Laboral API",
+        "description": "API para el sistema Panel Laboral",
+        "contact": {
+            "email": "[EMAIL_ADDRESS]"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://panel-laboral.test",
+            "description": "Servidor Principal"
+        }
+    ],
+    "paths": {
+        "/api": {},
+        "/api/carreras": {
+            "get": {
+                "tags": [
+                    "Carreras"
+                ],
+                "summary": "Listar carreras",
+                "operationId": "24f82a4261c194f035a7ad6c076d6e61",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Carreras"
+                ],
+                "summary": "Crear carrera",
+                "operationId": "3430b5198844e6744484d7e1b441db8f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nombre"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Ingeniería en Sistemas"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/api/carreras/{carrera}": {
+            "get": {
+                "tags": [
+                    "Carreras"
+                ],
+                "summary": "Mostrar carrera",
+                "operationId": "3281fae4583cfdbbac3a13d6fa4a5823",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Carreras"
+                ],
+                "summary": "Actualizar carrera",
+                "operationId": "67e5da0354685de071e978ee1d83335d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Ingeniería en Sistemas"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Carreras"
+                ],
+                "summary": "Eliminar carrera",
+                "operationId": "c955107cc7e263b26e56fd1e481b7f81",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "summary": "Verifica el estado de la API",
+                "operationId": "63ca574ccc7f0d914cdced2f70f30b57",
+                "responses": {
+                    "200": {
+                        "description": "API funcionando correctamente"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StoreCarreraRequest": {
+                "description": "Request body for storing a new Carrera",
+                "required": [
+                    "nombre"
+                ],
+                "properties": {
+                    "nombre": {
+                        "description": "The name of the Carrera",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateCarreraRequest": {
+                "description": "Request body for updating an existing Carrera",
+                "properties": {
+                    "nombre": {
+                        "description": "The name of the Carrera",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Ingresa directamente el access_token obtenido de la respuesta de Login o Activación.",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Carreras"
+        },
+        {
+            "name": "Health",
+            "description": "Health"
+        }
+    ]
+}
