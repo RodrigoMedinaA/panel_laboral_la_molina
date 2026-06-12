@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            // Aqui declaramos los seeders de cada modelo
+            TipoDocumentoSeeder::class,
+            CarreraSeeder::class,
+            ConocimientoSeeder::class,
+            InstitucionSeeder::class,
         ]);
     }
 }

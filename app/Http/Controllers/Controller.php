@@ -10,7 +10,7 @@ use OpenApi\Attributes as OA;
     description: 'API para el sistema Panel Laboral',
     contact: new OA\Contact(email: '[EMAIL_ADDRESS]')
 )]
-#[OA\Server(url: L5_SWAGGER_CONST_HOST, description: 'Servidor Principal')]
+#[OA\Server(url: 'http://panel-laboral.test', description: 'Servidor Principal')]
 #[OA\SecurityScheme(
     securityScheme: 'bearerAuth',
     type: 'http',

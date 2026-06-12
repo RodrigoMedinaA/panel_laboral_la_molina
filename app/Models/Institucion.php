@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Carrera extends Model
+class Institucion extends Model
 {
+    protected $table = 'instituciones';
+
     protected $fillable = [
+        'raz_social',
         'nombre',
     ];
 }
